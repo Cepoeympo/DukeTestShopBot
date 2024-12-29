@@ -1,33 +1,33 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 8px;
-    display: flex;
+    font-family: Arial, sans-serif;
     justify-content: center;
     align-items: center;
-    /*height: 100vh;*/
+    height: 100vh;
     text-align: center;
-    background-image: linear-gradient(180deg, #f95f5f, #ddd 40%, #ccc);
+    background-image: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(0, 0%, 35%));
     /*background-color: #f9f9f9;*/
 }
 header {
     background: hwb(68 56% 0%);
     width: 100vw;
-    max-width: 1024px;
-    margin: 0 auto;
 }
 main {
     width: 100vw;
-    max-width: 1024px; /*максимальная ширина может иметь другое значение*/
-    padding: 0 15px;
-    margin: 0 auto;
 }
 nav button {
-    background: hsl(211, 73%, 65%);
-    color: white;
     border: none;
-    padding: 10px 20px;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    /*cursor: pointer;*/
+    font-size: 16px;
+    font-family: Roboto, Verdana, Tahoma, sans;
+    padding: 12px 16px;
+    color: #fff;
+    background: hsl(211, 73%, 65%);
     border-radius: 5px;
     margin: 10px;
-    width: 30vw;
+    width: 25vw;
 }
