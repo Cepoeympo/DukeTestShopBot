@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 8;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,21 +10,20 @@ body {
     background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
     /*background-color: #f9f9f9;*/
 }
-/*
+header {
+    background: hwb(68 56% 0%);
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
 main {
-
+    width: 100%;
+    max-width: 1024px; /*максимальная ширина может иметь другое значение*/
+    padding: 0 15px;
+    margin: 0 auto;
 }
-
-#app {
-    max-width: 800px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-*/
 nav button {
-    background: #007bff;
+    background: hsl(211, 73%, 65%);
     color: white;
     border: none;
     padding: 10px 20px;
