@@ -27,6 +27,9 @@ nav button {
     margin: 1px 0 0 0;
     width: 100%;
 }
+nav button:active {
+    background: #ff4c41;
+}
 #products {
     background-image: linear-gradient(180deg, #c3f9be, #4bff41);
     padding: 10px 0;
