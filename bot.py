@@ -13,7 +13,7 @@ print(f"Токен успешно загружен. Бот запущен.")  # 
 if not BOT_TOKEN:
     raise ValueError("Токен бота не найден. Проверьте файл .env")
 
-URL = f"https://api.telegram.org/bot{BOT_TOKEN}/setChatMenuButton"
+# URL = f"https://api.telegram.org/bot{BOT_TOKEN}/setChatMenuButton"
 
 data = {
     "menu_button": {
@@ -25,8 +25,8 @@ data = {
     }
 }
 
-response = requests.post(URL, json=data)
-print(response.json())
+# response = requests.post(URL, json=data)
+# print(response.json())
 
 # Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -45,21 +45,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         reply_markup=reply_markup
     )
 
-# Обработка кнопки
-async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    query = update.callback_query
-    await query.answer()
-
-    if query.data == "order_food":
-        await query.edit_message_text(text="Please select your food options!")
-        # Здесь можно добавить меню для выбора еды
-
 # Основная функция
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CallbackQueryHandler(button_handler))
+    # app.add_handler(CallbackQueryHandler(button_handler))
 
     print("Bot is running...")
     app.run_polling()

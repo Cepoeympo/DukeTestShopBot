@@ -34,8 +34,13 @@ nav button:active {
     background-image: linear-gradient(180deg, #c3f9be, #4bff41);
     padding: 10px 0;
 }
+#products p {
+    text-align: justify;
+    /*text-indent: 20px;*/
+    padding: 0px 15px;
+}
 #products h2 {
-    background-color: #d7ff61;
+    /*background-color: #d7ff61;*/
     padding: 20px 0;
     width: 100%;
     text-align: center;
