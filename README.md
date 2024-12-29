@@ -1,2 +1,0 @@
-# DukeTestShopBot
-DukeTestShopApp
