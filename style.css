@@ -5,19 +5,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
     text-align: center;
-    background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+    background-image: linear-gradient(180deg, #f95f5f, #ddd 40%, #ccc);
     /*background-color: #f9f9f9;*/
 }
 header {
     background: hwb(68 56% 0%);
-    width: 100%;
+    width: 100vw;
     max-width: 1024px;
     margin: 0 auto;
 }
 main {
-    width: 100%;
+    width: 100vw;
     max-width: 1024px; /*максимальная ширина может иметь другое значение*/
     padding: 0 15px;
     margin: 0 auto;
@@ -29,5 +29,5 @@ nav button {
     padding: 10px 20px;
     border-radius: 5px;
     margin: 10px;
-    width: 25%;
+    width: 30vw;
 }
