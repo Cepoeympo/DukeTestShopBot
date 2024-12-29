@@ -18,7 +18,7 @@ URL = f"https://api.telegram.org/bot{BOT_TOKEN}/setChatMenuButton"
 data = {
     "menu_button": {
         "type": "web_app",
-        "text": "Open Web App",
+        "text": "Open Web App Button",
         "web_app": {
             "url": "https://cepoeympo.github.io/DukeTestShopBot/main.html"
         }
@@ -33,7 +33,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
         [
             InlineKeyboardButton(
-                text="Open Web App",
+                text="Open Web App Inline Button",
                 web_app=WebAppInfo(url="https://cepoeympo.github.io/DukeTestShopBot/main.html")
             )
         ]
