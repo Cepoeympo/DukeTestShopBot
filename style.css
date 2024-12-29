@@ -9,7 +9,7 @@ body {
     min-height: 95vh;
     width: 100vw;
     text-align: center;
-    background-image: linear-gradient(180deg, #e7e7e7, #4bff41);
+    background-image: linear-gradient(180deg, #ffffff, #82ff7c);
     /*overflow: hidden;*/
     /*background-color: #f9f9f9;*/
 }
@@ -62,20 +62,33 @@ footer {
     text-align: center;
     padding: 5px 0;
     border-radius: 20px 20px 0 0;
-    background-image: linear-gradient(180deg, #4b4b4b, #282828);
+    background-image: linear-gradient(195deg, #ffffff, #ff5f51);
     /*-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 2px 0px 11px 0px rgb(0 0 0);*/
+}/*
+.invisible-scrollbar::-webkit-scrollbar {
+    display: none;
+}*/
+.cats {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    grid-template-columns: repeat(2, 1fr);
 }
-
-
-
-
+.cats li {
+    min-height: 150px;
+    background-image: linear-gradient(195deg, #ffffff, #ff5f51);
+}
 /* Использовать медиа запрос, чтобы добавить точку останова на 800 пикселей: */
 
 @media screen and (min-width: 800px) {
-    nav button {
-        /*width: 49vw;*/
-        /*background: #ff6f6100;*/
+    /*nav button {
+        width: 49vw;
+        background: #ff6f6100;
+    }*/
+    .cats {
+        grid-template-columns: repeat(3, 1fr);
     }
-  }
+}
