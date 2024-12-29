@@ -9,6 +9,12 @@ body {
     background-color: #f9f9f9;
 }
 
+main {
+    text-align: center;
+    padding: 8px 12px;
+    background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+}
+
 #app {
     max-width: 800px;
     padding: 20px;
