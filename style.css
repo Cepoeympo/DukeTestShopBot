@@ -23,6 +23,12 @@ main {
     border-radius: 10px;
 }
 */
-div {
-    display: block;
+nav button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 25%;
 }
