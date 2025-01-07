@@ -5,13 +5,19 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
 </head>
+<!--<div id="custom-loader"></div>
+<div id="loading-screen">
+    <img src="your-loading-icon.png" alt="Loading..." />
+</div>-->
 <body class="invisible-scrollbar">
     <header>
-        <h1>Welcome to My Web App!</h1>
+        <!--<h1>Продукция производства «Научная компания «Фламена»</h1>-->
+        <img src="img/flamena_logo.jpg" alt="Flamena Logo"/>
     </header>
     <main>
-        <h3>This is a simple example.</h3>     
+        <h3>Заживёт всё!</h3>     
         <nav>
             <button>Home</button>
             <button>About</button>
@@ -23,22 +29,65 @@
             <p>Lorem Ipsum</p>
             <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
             <p>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</p>
-            <ul class="cats">
-                <li>Барсик 1</li>
-                <li>Снежок 1</li>
-                <li>Бублик 1</li>
-                <li>Васька 1</li>
-                <li>Барсик 2</li>
-                <li>Снежок 2</li>
-                <li>Бублик 2</li>
-                <li>Васька 2</li>
-              </ul>    </main>
+            <ul class="units">
+                <li class="unit">
+                    <img src="img/cream.jpg" alt="Cream"/>
+                    <p>Face Cream</p>
+                    <p>Price: $10</p>
+                    <button>Add to Cart</button>
+                </li>
+                <li class="unit">
+                    <img src="img/lotion.jpg" alt="Lotion"/>
+                    <p>Body Lotion</p>
+                    <p>Price: $15</p>
+                    <button>Add to Cart</button>
+                </li>
+                <li class="unit">Бублик 1</li>
+                <li class="unit">Васька 1</li>
+                <li class="unit">Барсик 2</li>
+                <li class="unit">Снежок 2</li>
+                <li class="unit">Бублик 2</li>
+                <li class="unit">Васька 2</li>
+              </ul>    
             <p>What is Lorem Ipsum?</p>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+    </main>
     <footer>
         <p>&copy; 2024 My Web App. All rights reserved.</p>
     </footer>
     </body>
+    <!-- Этот блок будет дублироваться для каждой строки источника данных products («Продукты») -->
+    <div data-websheet="products">
+    <!-- Отображается только в том случае, если флажок True.
+         В рассмотренном ранее примере с псевдонимами
+         используется <div data-websheet-if="Bread?"> -->
+    <div data-websheet-if="Display ?">
+        <!-- Отображается значение столбца Product («Продукт») -->
+        <div data-websheet-text="Product"></div>
+        <!-- Значение столбца Picture («Изображение») привязывается к атрибуту src -->
+        <img data-websheet-bind:src="Picture" />
+    </div>
+</div>
 <script src="script.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<!-- Импортируем websheet.js -->
+<script src="//cdn.jsdelivr.net/gh/pierreavn/websheetjs/dist/websheet.min.js"></script>
+<!-- Конфигурация Websheet.js -->
+<script>
+  websheet('products', {  // <-- имя источника данных
+    // URL-адрес таблицы
+    url: 'https://docs.google.com/spreadsheets/d/1VNvJfQoAz2eU6sKPBm6EjqRvGPIbGPApW5sYefIS680/edit?',
+    // Название вкладки таблицы, в которой находятся данные
+    sheet: 'Products',
+    
+    // Определяем вновь вычисляемые столбцы на основе имеющихся.
+    // В приведенном ниже примере псевдоним столбца Bread? true для
+    // всех строк, в которых значение столбца Category («Категория») равно Breads («Хлеб»)
+    // (row — это объект, содержащий все данные текущей строки).
+    aliases: {
+        // 'Bread?': row => row['Category'].value === 'Breads',
+    }
+  })
+</script>
 </html>
