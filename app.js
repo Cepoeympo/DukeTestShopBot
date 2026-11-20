@@ -604,31 +604,10 @@
 
   function applyTheme() {
     if (!tg) return;
-    const root = document.documentElement;
-    const tp = tg.themeParams || {};
-    const dark = tg.colorScheme === 'dark';
-    root.classList.add('no-anim');
-    root.classList.toggle('theme-dark', dark);
-    root.classList.toggle('theme-light', !dark);
-
-    const set = (name, value) => { if (value) root.style.setProperty(name, value); };
-    set('--bg', tp.bg_color);
-    set('--text', tp.text_color);
-    set('--hint', tp.hint_color);
-    set('--line', tp.section_separator_color);
-    set('--card-2', tp.secondary_bg_color);
-    set('--bg-2', tp.secondary_bg_color);
-    if (dark) set('--card', tp.secondary_bg_color);
-
     try {
-      tg.setHeaderColor(tp.bg_color || (dark ? '#141a16' : '#ffffff'));
-      tg.setBackgroundColor(tp.bg_color || (dark ? '#141a16' : '#ffffff'));
+      tg.setHeaderColor('#ffffff');
+      tg.setBackgroundColor('#ffffff');
     } catch (e) { /* старые клиенты */ }
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => root.classList.remove('no-anim'));
-    });
-    setTimeout(() => root.classList.remove('no-anim'), 200);
   }
 
   function initTelegram() {
@@ -638,7 +617,6 @@
       tg.expand();
       if (tg.disableVerticalSwipes) tg.disableVerticalSwipes();
       applyTheme();
-      tg.onEvent('themeChanged', applyTheme);
       if (tg.BackButton) tg.BackButton.onClick(() => {
         if (sheet.classList.contains('is-open')) closeSheet();
         else go('catalog');
