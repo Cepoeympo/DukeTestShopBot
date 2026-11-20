@@ -129,7 +129,7 @@
           <button class="fav-btn ${fav ? 'is-on' : ''}" data-fav="${p.id}" aria-label="В избранное">
             <svg><use href="#${fav ? 'i-heart-fill' : 'i-heart'}"/></svg>
           </button>
-          <img src="${p.img}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="360" height="360">
+          <img src="${p.img}" alt="${esc(p.title)}" loading="lazy" decoding="async" draggable="false" width="360" height="360">
         </div>
         <div class="product__body">
           <div class="product__title">${esc(p.title)}</div>
@@ -210,7 +210,7 @@
   function cartRow(it) {
     return `
       <div class="cart-item" data-open="${it.p.id}">
-        <div class="cart-item__thumb"><img src="${it.p.img}" alt="" loading="lazy"></div>
+        <div class="cart-item__thumb"><img src="${it.p.img}" alt="" loading="lazy" draggable="false"></div>
         <div class="cart-item__info">
           <div class="cart-item__name">${esc(it.p.title)}</div>
           <div class="cart-item__row">
@@ -366,7 +366,7 @@
     sheetData = { id, qty: () => qty, set: (v) => { qty = v; } };
     openSheet(`
       <div class="pd">
-        <div class="pd__media"><img src="${p.img}" alt="${esc(p.title)}"></div>
+        <div class="pd__media"><img src="${p.img}" alt="${esc(p.title)}" draggable="false"></div>
         <div class="pd__head">
           <div>
             <h2 class="pd__title">${esc(p.title)}</h2>
@@ -541,6 +541,10 @@
     }
 
     if (e.target === backdrop) closeSheet();
+  });
+
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest('img')) e.preventDefault();
   });
 
   document.addEventListener('input', (e) => {
