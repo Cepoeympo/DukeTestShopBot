@@ -1,0 +1,17 @@
+[Unit]
+Description=Flamena shop bot (Telegram Mini App)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/duke/DukeTestShopBot
+EnvironmentFile=/home/duke/DukeTestShopBot/.env
+ExecStart=/home/duke/DukeTestShopBot/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
