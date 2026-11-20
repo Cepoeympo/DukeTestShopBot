@@ -42,6 +42,13 @@ Telegram Mini App (Web App) — витрина продукции «Фламен
 - Учёт safe-area: `env(safe-area-inset-*)` в topbar, sheet и tabbar.
 - Дисклеймер о противопоказаниях присутствует на всех экранах с товарами.
 
+## Кеш GitHub Pages
+
+Ассеты отдаются с `cache-control: max-age=600`. Поэтому в `index.html` ссылки
+версионированы (`?v=YYYYMMDDx`): **после любой правки `style.css`, `app.js` или
+`data.js` поднять версию в `index.html`**, иначе WebView ещё 10 минут показывает
+старый файл, и правка «не работает».
+
 ## Проверки перед коммитом
 
 ```bash
